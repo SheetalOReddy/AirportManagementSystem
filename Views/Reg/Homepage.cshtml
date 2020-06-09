@@ -1,0 +1,42 @@
+﻿@model AirportManagementSystem.Models.Admin
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Homepage</title>
+
+</head>
+<body style="background-image:url('/Style/airport.jpg');background-repeat:no-repeat;background-size:cover">
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal" style="text-align:center; margin-top:20px">
+            <h1 style="color:brown; margin-right:-100px">AIRPORT MANAGEMENT SYSTEM</h1>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group" style="font-size:20px;">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Admin" name="submit" class="btn btn-default" style="color:tomato; margin-top:70px; height:50px; width:150px; font-size:20px" />
+                </div>
+            </div><br /><br />
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Pilot" name="submit" class="btn btn-default" style="color:tomato; height:50px; width:150px; font-size:20px" />
+                </div>
+            </div><br /><br />
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Manager" name="submit" class="btn btn-default" style="color:tomato; height:50px; width:150px; font-size:20px" />
+                </div>
+            </div>
+        </div>
+    }
+</body>
+</html>

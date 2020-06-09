@@ -1,0 +1,68 @@
+﻿@model IEnumerable<AirportManagementSystem.Models.Pilot>
+
+@{
+    ViewBag.Title = "Pilot Details";
+}
+
+<h2>Already Registered Pilot List</h2>
+
+<p>
+    @Html.ActionLink("New Registration", "PilotList")
+</p>
+<p>
+    @Html.ActionLink("Logout", "Homepage")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Age)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContactNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PilotID)
+        </th>
+        
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContactNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PilotID)
+            </td>
+            
+            <td>
+                @Html.ActionLink("View", "PilotDetails", new { id = item.PilotID }) |
+                @Html.ActionLink("Delete", "PilotDelete", new { id = item.PilotID})
+            </td>
+        </tr>
+    }
+
+</table>

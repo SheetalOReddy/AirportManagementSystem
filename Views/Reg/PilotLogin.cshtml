@@ -1,0 +1,57 @@
+﻿@model AirportManagementSystem.Models.Pilot
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Pilot Login</title>
+</head>
+<body style="background-image:url('/Style/admin1.jpg');background-repeat:no-repeat;background-size:cover">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal" style="text-align:center">
+            <h1>Pilot Login</h1>
+            <p style="font-size:30px;margin-right:-1200px;margin-top:-50px">
+                @Html.ActionLink("Home", "Homepage")
+            </p>
+            <p style="font-size:30px;margin-right:-950px;margin-top:-65px">
+                @Html.ActionLink("Sign Up", "PilotRegistration")
+            </p>
+            <div style="border:5px solid; border-color:lightpink;border-radius:initial;padding:20px;border-radius:25px;margin-left:500px;width:300px">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group" style="font-size:30px">
+                    @Html.LabelFor(model => model.PilotID, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.PilotID, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.PilotID, "", new { @class = "text-danger" })
+                    </div>
+                </div><br />
+
+                <div class="form-group" style="font-size:30px">
+                    @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                    </div>
+                </div><br />
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Login" class="btn btn-default" style="font-size:20px" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+
+
+</body>
+</html>

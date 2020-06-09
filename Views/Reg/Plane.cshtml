@@ -1,0 +1,117 @@
+﻿@model AirportManagementSystem.Models.FlightBook
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Flight</title>
+</head>
+<body style="background-image:url('/Style/plane.jpg');background-repeat:no-repeat;background-size:cover">
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+    <div class="form-horizontal" style="text-align:center">
+        <h1 style="color:royalblue;margin-left:-800px;">Flight Schedule</h1>
+        <p style="font-size:30px;margin-right:-1100px;margin-top:-60px">
+            @Html.ActionLink("Home", "Homepage")
+        </p>
+        <div style="border:5px solid; border-color:cornflowerblue;border-radius:initial;padding:40px;margin-top:80px;border-radius:25px;margin-left:80px;width:350px">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group" style="font-size:25px;color:white">
+                @Html.LabelFor(model => model.Currentlocation, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.DropDownList("Currentlocation", new List<SelectListItem>
+                {
+                    new SelectListItem{Text = "Andhra Pradesh", Value="Andhra Pradesh" },
+                    new SelectListItem{Text = "Karnataka", Value="Karnataka" },
+                    new SelectListItem{Text = "Kerala", Value="Kerala" },
+                    new SelectListItem{Text = "TamilNadu", Value="TamilNadu" },
+                    new SelectListItem{Text = "Madhya Pradesh", Value="Madhya Pradesh" },
+                    new SelectListItem{Text = "Pune", Value="Pune" },
+                    new SelectListItem{Text = "West Bengal", Value="West Bengal" },
+                    new SelectListItem{Text = "Delhi", Value="Delhi" },
+                    new SelectListItem{Text = "Uttar Pradesh", Value="Uttar Pradesh" },
+                    new SelectListItem{Text = "Punjab", Value="Punjab" },
+                    new SelectListItem{Text = "Rajasthan", Value="Rajasthan" },
+                    new SelectListItem{Text = "Manipur", Value="Manipur" },
+                    new SelectListItem{Text = "Gujarat", Value="Gujarat" },
+                }, "Select Current Location")
+                <div style="font-size:15px; color:red">
+                    @Html.ValidationMessageFor(model => model.Currentlocation, "", new { @class = "text-danger" })
+                </div>
+            </div><br />
+
+            <div class="form-group" style="font-size:25px;margin-right:-25px;color:white">
+                @Html.LabelFor(model => model.Destination, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.DropDownList("Destination", new List<SelectListItem>
+                {
+                    new SelectListItem{Text = "Andhra Pradesh", Value="Andhra Pradesh" },
+                    new SelectListItem{Text = "Karnataka", Value="Karnataka" },
+                    new SelectListItem{Text = "Kerala", Value="Kerala" },
+                    new SelectListItem{Text = "TamilNadu", Value="TamilNadu" },
+                    new SelectListItem{Text = "Madhya Pradesh", Value="Madhya Pradesh" },
+                    new SelectListItem{Text = "Pune", Value="Pune" },
+                    new SelectListItem{Text = "West Bengal", Value="West Bengal" },
+                    new SelectListItem{Text = "Delhi", Value="Delhi" },
+                    new SelectListItem{Text = "Uttar Pradesh", Value="Uttar Pradesh" },
+                    new SelectListItem{Text = "Punjab", Value="Punjab" },
+                    new SelectListItem{Text = "Rajasthan", Value="Rajasthan" },
+                    new SelectListItem{Text = "Manipur", Value="Manipur" },
+                    new SelectListItem{Text = "Gujarat", Value="Gujarat" },
+                }, "Select Destination")
+                <div style="font-size:15px; color:red">
+                    @Html.ValidationMessageFor(model => model.Destination, "", new { @class = "text-danger" })
+                </div>
+            </div><br />
+
+            <div class="form-group" style="font-size:25px;margin-right:-25px;color:white">
+                @Html.LabelFor(model => model.Journeytime, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.EditorFor(model => model.Journeytime, new { htmlAttributes = new { @class = "form-control" } })
+                <div style="font-size:15px; color:red">
+                    @Html.ValidationMessageFor(model => model.Journeytime, "", new { @class = "text-danger" })
+                </div>
+            </div><br />
+
+            <div class="form-group" style="font-size:25px;margin-right:-50px;color:white">
+                @Html.LabelFor(model => model.Airways, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.DropDownList("Airways", new List<SelectListItem>
+                {
+                    new SelectListItem{Text = "Indigo", Value="Indigo" },
+                    new SelectListItem{Text = "Air India", Value="Air India" },
+                    new SelectListItem{Text = "Spice Jet", Value="Spice Jet" },
+                    new SelectListItem{Text = "GoAir", Value="GoAir" },
+                    new SelectListItem{Text = "AirAsia India", Value="AirAsia India" },
+                    new SelectListItem{Text = "Air India Express", Value="Air India Express" },
+                    new SelectListItem{Text = "West Jet", Value="West Jet" },
+                    new SelectListItem{Text = "Vistara", Value="Vistara" },
+                    new SelectListItem{Text = "Jet Airways", Value="Jet Airways" },
+                }, "Select Airways")
+                <div style="font-size:15px; color:red">
+                    @Html.ValidationMessageFor(model => model.Airways, "", new { @class = "text-danger" })
+                </div>
+            </div><br />
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" onclick="func();"class="btn btn-default" />
+                </div>
+            </div>
+            <script type="text/javascript">
+                function func() {
+                    alert("Details Saved Successfully");
+                }
+            </script>
+        </div>
+    </div>
+}
+</body>
+</html>

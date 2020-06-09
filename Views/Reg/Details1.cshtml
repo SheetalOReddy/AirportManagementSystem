@@ -1,0 +1,49 @@
+﻿@model AirportManagementSystem.Models.FlightBook
+
+@{
+    ViewBag.Title = "Details1";
+}
+
+
+
+<div>
+    <h4>Flight Details</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Currentlocation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Currentlocation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Destination)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Destination)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Journeytime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Journeytime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Airways)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Airways)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("View Scheduled Flight List", "Flight_Details")
+</p>

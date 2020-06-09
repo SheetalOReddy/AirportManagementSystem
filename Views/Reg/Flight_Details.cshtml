@@ -1,0 +1,55 @@
+﻿@model IEnumerable<AirportManagementSystem.Models.FlightBook>
+
+@{
+    ViewBag.Title = "Flight Details";
+}
+
+<h2>Flight Scheduled Details</h2>
+
+<p>
+    @Html.ActionLink("New Schedule", "Flight")
+</p>
+<p>
+    @Html.ActionLink("Logout", "Homepage")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Currentlocation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Destination)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Journeytime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Airways)
+        </th>
+        
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Currentlocation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Destination)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Journeytime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Airways)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("View", "Details1", new { id = item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+        </td>
+    </tr>
+    }
+
+</table>
